@@ -1,7 +1,4 @@
-const rect = {
-  perimeter: (x, y) => 2 * (x + y),
-  area: (x, y) => x * y,
-};
+const rect = require("./rect");
 
 function solveRect(l, b) {
   console.log("Solving for rect with l = " + l + "and b =" + b);
