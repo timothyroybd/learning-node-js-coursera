@@ -2,17 +2,16 @@ const rect = require("./rect");
 
 function solveRect(l, b) {
   console.log("Solving for rect with l = " + l + "and b =" + b);
-  if (l <= 0 || b <= 0) {
-    console.log(
-      "Rectangle dimensions shoudl be greater than zero: l =" +
-        l +
-        ", and b =" +
-        b
-    );
-  } else {
-    console.log(`The area of the rectangle is ${rect.area(l, b)}`);
-    console.log(`The peremiter of the rectangle is ${rect.perimeter(l, b)}`);
-  }
+  rect(l, b, (err, rectangle) => {
+    if (err) {
+      console.log("ERROR: ", err.message);
+    } else {
+      console.log(
+        `The are of the rect dimension l = ${l} and b = ${b} is ${rectangle.area} and the permiter is ${rectangle.perimeter}`
+      );
+    }
+  });
+  console.log(`This sts after the call to rect()`);
 }
 
 solveRect(2, 4);
