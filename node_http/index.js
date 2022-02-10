@@ -13,6 +13,7 @@ const server = http.createServer((req, res) => {
     if (req.url === "/") fileUrl = "/index.html";
     else fileUrl = req.url;
     const filePath = path.resolve("./public" + fileUrl);
+    console.log(`This is from flieUEL: #${filePath}`);
     const fileExt = path.extname(filePath);
     if (fileExt === ".html") {
       fs.exists(filePath, (exists) => {
