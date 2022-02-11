@@ -2,7 +2,7 @@ const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-
+const path = require("path");
 const dishRouter = require("./routes/dishRouter");
 const hostName = "localhost";
 const port = 3000;
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 //Hey
 
 app.use("/dishes", dishRouter);
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use((req, res, next) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html");
